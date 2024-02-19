@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile - bduber274</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #121212; 
+      color: #fff; 
+    }
+
+    #entryButton {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #212121; 
+      padding: 20px 40px;
+      border: 2px solid #3498db;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    #entryButton a {
+      text-decoration: none;
+      color: #fff; 
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    #content {
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    #content.show {
+      opacity: 1;
+    }
+
+    /* PROFILE CSS */
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Roboto', sans-serif; 
+        background-color: #0d0d0d;
+        color: #fff;
+        line-height: 1.6;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .profile {
+        background-color: #1f1f1f;
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.8);
+    }
+
+    .profile-pic {
+        width: 200px; 
+        height: 200px;
+        border-radius: 50%;
+        margin: 0 auto 20px;
+        display: block;
+        border: 5px solid #fff; 
+        object-fit: cover;
+    }
+
+    .name {
+        text-align: center;
+        margin-bottom: 10px;
+        font-size: 36px; 
+        font-weight: bold; 
+    }
+
+    .bio {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 20px;
+        opacity: 0.8; 
+    }
+
+    .contact-info {
+        list-style: none;
+        padding: 0;
+        text-align: center;
+        margin-top: 20px; 
+    }
+
+    .contact-info a {
+        display: inline-block;
+        text-decoration: none;
+        color: #fff;
+        background-color: #4ecca3; 
+        padding: 12px 24px; 
+        margin: 8px; 
+        border-radius: 25px;
+        transition: background-color 0.3s ease;
+        font-size: 18px;
+        border: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    .contact-info a:hover {
+        background-color: #47b8a7;
+    }
+  </style>
+</head>
+<body>
+  <div id="entryButton">
+    <a href="#">Click To Enter</a>
+  </div>
+
+  <audio id="profileAudio" src="/runaway.mp3"></audio>
+  <div class="container" id="content">
+    <div class="profile">
+      <img src="https://cdn.discordapp.com/avatars/1018262832472674404/cf94b1af20e953b717dbd85114ebc12d.png?size=1024&format=webp&quality=lossless&width=0&height=256"
+        alt="Profile Picture" class="profile-pic" />
+      <h1 class="name">bduber274</h1>
+      <p class="bio">14, programmer, graphic designer, web designer, modeler</p>
+      <ul class="contact-info">
+        <a href="https://discord.com/channels/@me/1137891158660493343" target="_blank">Discord</a>
+        <a href="" target="_blank">Project</a>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      setTimeout(function () {
+        var entryButton = document.getElementById("entryButton");
+        var content = document.getElementById("content");
+        var audio = document.getElementById("profileAudio");
+
+        entryButton.style.opacity = 1;
+        entryButton.style.visibility = "visible";
+
+        document.addEventListener("click", function () {
+          entryButton.style.display = "none";
+          content.classList.add("show");
+          audio.play();
+        });
+      }, 500);
+    });
+  </script>
+</body>
+</html>
