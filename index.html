@@ -4,7 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Profile - bduber274</title>
+  <meta property="og:title" content="Profile - bduber274" />
+  <meta property="og:description" content="Cool Website Trust" />
+  <meta property="og:image" content="profile.png" />
   <style>
+    /* LOADING SCREEN STYLES */
     body {
       margin: 0;
       padding: 0;
@@ -44,7 +48,7 @@
       opacity: 1;
     }
 
-    /* PROFILE CSS */
+    /* PROFILE STYLES */
 
     * {
         box-sizing: border-box;
@@ -61,7 +65,7 @@
 
     .container {
         max-width: 800px;
-        margin: 0 auto;
+        margin: 50px auto; 
         padding: 20px;
     }
 
@@ -120,6 +124,67 @@
     .contact-info a:hover {
         background-color: #47b8a7;
     }
+
+    /* PROJECTS STYLES */
+
+    .projects {
+        display: flex;
+        justify-content: center; 
+        margin-top: 40px;
+    }
+
+    .project-card {
+        background-color: #1f1f1f;
+        border-radius: 15px;
+        padding: 20px;
+        width: calc(33.33% - 20px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+        margin: 0 10px;
+        text-align: center; 
+    }
+
+    .project-card a {
+        display: inline-block;
+        text-decoration: none;
+        color: #fff;
+        background-color: #4ecca3; 
+        padding: 12px 24px; 
+        margin: 8px; 
+        border-radius: 25px;
+        transition: background-color 0.3s ease;
+        font-size: 18px;
+        border: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    .project-card a:hover {
+        background-color: #47b8a7;
+    }
+
+    .project-title {
+        font-size: 24px;
+        margin-bottom: 10px;
+        color: #4ecca3;
+    }
+
+    .project-description {
+        font-size: 16px;
+        opacity: 0.8;
+    }
+
+    /* VIEW COUNTER STYLE */
+    .view-counter {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      font-size: 14px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      z-index: 999;
+    }
   </style>
 </head>
 <body>
@@ -130,15 +195,33 @@
   <audio id="profileAudio" src="/runaway.mp3"></audio>
   <div class="container" id="content">
     <div class="profile">
-      <img src="https://cdn.discordapp.com/avatars/1018262832472674404/cf94b1af20e953b717dbd85114ebc12d.png?size=1024&format=webp&quality=lossless&width=0&height=256"
+      <img src="profile.png"
         alt="Profile Picture" class="profile-pic" />
       <h1 class="name">bduber274</h1>
-      <p class="bio">14, programmer, graphic designer, web designer, modeler</p>
+      <p class="bio">14 years old, programmer, graphic designer, web designer, modeler, developer. i make bypasses and am good with html css and javascript. see some of my work below</p>
       <ul class="contact-info">
-        <a href="https://discord.com/channels/@me/1137891158660493343" target="_blank">Discord</a>
-        <a href="" target="_blank">Project</a>
+        <a href="https://discord.com/invite/R5zcwHjDWs" target="_blank">Discord</a>
+        <a href="https://www.roblox.com/users/956796640/profile" target="_blank">Roblox</a>
+        <a href="https://github.com/bduber274" target="_blank">Github</a>
+        <a href="https://youtube.com/bduber274" target="_blank">YouTube</a>
+        <a href="https://tiktok.com/@not_bduber274" target="_blank">TikTok</a>
       </ul>
+
+      <div class="projects">
+        <div class="project-card">
+          <h2 class="project-title">Celestial Network</h2>
+          <p class="project-description">A unblocked game website for school. Includes a proxy, and 2 Versions of the game website. Click view and on your keyboard click 2 to open the game site.</p>
+          <a href="https://celestial-network.fr.to" target="_blank" class="contact-info">View</a>
+      </div>
+        
+      <div class="project-card">
+        <h2 class="project-title">AntiSecurly.JS</h2>
+        <p class="project-description">A bookmarklet created to bypass Securly being able to view your screen and blocking websites. Click view, drag the button into your bookmarks bar, then select the bookmarklet on any website.</p>
+        <a href="https://anti-securly.js.uk.to" target="_blank" class="contact-info">View</a>
     </div>
+        
+    </div>
+      <div class="view-counter" id="viewCounter">Views: 0</div>
   </div>
 
   <script>
@@ -159,5 +242,50 @@
       }, 500);
     });
   </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+
+        var hasVisited = getCookie("profileViewed");
+        if (!hasVisited) {
+
+          var viewCount = localStorage.getItem("profileViewCount") || 0;
+          viewCount++;
+          localStorage.setItem("profileViewCount", viewCount.toString());
+          document.getElementById("viewCounter").textContent = "Views: " + viewCount;
+
+          setCookie("profileViewed", "true", 365);
+        } else {
+
+          var viewCount = localStorage.getItem("profileViewCount") || 0;
+          document.getElementById("viewCounter").textContent = "Views: " + viewCount;
+        }
+      });
+
+      function setCookie(name, value, days) {
+        var expires = "";
+        if (days) {
+          var date = new Date();
+          date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+          expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+      }
+
+      function getCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for(var i = 0; i < ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) == ' ') {
+            c = c.substring(1, c.length);
+          }
+          if (c.indexOf(nameEQ) == 0) {
+            return c.substring(nameEQ.length, c.length);
+          }
+        }
+        return null;
+      }
+    </script>
 </body>
 </html>
